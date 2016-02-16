@@ -1,6 +1,7 @@
 package com.example.atitude6430.sqlite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         tableOperations.addInformations(name,mobile,email,sqLiteDatabase);
         Toast.makeText(getBaseContext(),"Row added",Toast.LENGTH_SHORT).show();
         tableOperations.close();
-
+    }
+    public void viewElement(View view){
+        Intent intent = new Intent(this,DetailListActivity.class);
+        startActivity(intent);
     }
 }

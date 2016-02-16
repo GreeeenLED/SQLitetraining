@@ -2,6 +2,7 @@ package com.example.atitude6430.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -40,5 +41,12 @@ public class TableOperations extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+    public Cursor getInformations (SQLiteDatabase db){
+        //metoda do zwracania obiektów
+        Cursor cursor;
+        String[] projections = {NewElement.Table1.NAME,NewElement.Table1.MOBILE,NewElement.Table1.EMAIL}; //innymi słowy nazwy kolumn
+                cursor = db.query(NewElement.Table1.TABLE_NAME,projections,null,null,null,null,null);
+        return cursor;
     }
 }
